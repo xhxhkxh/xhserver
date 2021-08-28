@@ -153,7 +153,7 @@
             var isMac = /macintosh|mac os x/i.test(navigator.userAgent);
             var ua = navigator.userAgent;
             ua = ua.toLowerCase();
-            if (ua.indexOf('windows') > -1 || isMac) {
+            if (ua.indexOf('windows') > -1 || isMac || ua.indexOf("win32") > -1 {
                 console.log("Is computer");
 
             }
@@ -223,5 +223,6 @@
         <p>检测到您在使用手机浏览，请使用电脑以获得更好的体验</p>
         <button onclick="hideMobTip()">仍要访问</button>
     </div>
+    <p style="color:gray;font-size:5px;position:absolute;bottom:0%;text-align:center;">已加载Xteclab OS detect v3</p>
 </body>
 <!-- -->
