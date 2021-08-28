@@ -8,19 +8,9 @@
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
     <script src='https://www.recaptcha.net/recaptcha/api.js?render=6Le8hSYcAAAAAEh4tEUY7XgiEbARRbg8-556Eg87'></script>
+
     <script>
-        function isMobile() {
-            var ua = navigator.userAgent;
-            ua = ua.toLowerCase();
-            if (ua.indexOf("android") != -1 || ua.indexOf("iPhone") != 1{
-                console.log("Is android");
-                document.getElementById("mobTip").style = "display:block";
-            }
-            
-        }
-        function showMoblieTip() {
-            document.getElementById("mobTip").style = "display:block";
-        }
+
         //Switch language
         var lang = 0; //0=Eng,1=Ch
         function sw_lang() {
@@ -37,7 +27,7 @@
                 document.getElementById("switch language").innerText = "Switch to English";
             }
         }
-        
+
         // prerender，visible 和 hidden
         let pageVisibility = document.visibilityState;
         // 监听 visibility change 事件
@@ -76,17 +66,18 @@
         }
     </script>
     <style type="text/css">
-        .mobile_tip{
-            background-color:rgb(128,128,128);
-            z-index:1145141919810000000;
-            position:absolute;
-            top:0%;
-            bottom:0%;
-            left:0%;
-            right:0%;
-            text-align:center;
-            display:none;
+        .mobile_tip {
+            background-color: rgb(128,128,128);
+            z-index: 1145141919810000000;
+            position: absolute;
+            top: 0%;
+            bottom: 0%;
+            left: 0%;
+            right: 0%;
+            text-align: center;
+            display: none;
         }
+
         *.info {
             position: absolute;
             background-color: rgba(100,100,255,0.3);
@@ -157,7 +148,21 @@
             word-wrap: break-word;
         }
     </style>
+    <script type="text/javascript">
+        function isMobile() {
+            var ua = navigator.userAgent;
+            ua = ua.toLowerCase();
+            if (ua.indexOf('windows') > -1) {
+                console.log("Is windows");
+
+            }
+            else {
+                document.getElementById("mobTip").style = "display:block";
+            }
+        }
+    </script>
 </head>
+
 <body onload="isMobile();">
     <button onclick="displayMenu()" id="disMenu">
         <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
