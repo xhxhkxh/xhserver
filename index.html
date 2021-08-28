@@ -12,7 +12,7 @@
         function isMobile() {
             var ua = navigator.userAgent;
             ua = ua.toLowerCase();
-            if (ua.indexOf("android") != -1) {
+            if (ua.indexOf("android") != -1 || ua.indexOf("iPhone") != 1{
                 console.log("Is android");
                 document.getElementById("mobTip").style = "display:block";
             }
