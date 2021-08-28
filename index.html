@@ -150,10 +150,11 @@
     </style>
     <script type="text/javascript">
         function isMobile() {
+            var isMac = /macintosh|mac os x/i.test(navigator.userAgent);
             var ua = navigator.userAgent;
             ua = ua.toLowerCase();
-            if (ua.indexOf('windows') > -1) {
-                console.log("Is windows");
+            if (ua.indexOf('windows') > -1 || isMac) {
+                console.log("Is computer");
 
             }
             else {
