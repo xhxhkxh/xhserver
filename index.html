@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE HTML>
+<html>
 <head>
     <title>Xteclab的服务器页面~(/▽＼)</title>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
@@ -65,6 +66,8 @@
             document.getElementById("disMenu").style = "display:block";
         }
     </script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!--Import jQuery-->
     <style type="text/css">
         .mobile_tip {
             background-color: rgb(128,128,128);
@@ -147,6 +150,17 @@
             display: none;
             word-wrap: break-word;
         }
+        .captcha{
+            background-color:black;
+            color:white;
+            position:absolute;
+            left:0%;
+            top:0%;
+            bottom:0%;
+            right:0%;
+            text-align:center;
+            z-index:999999999999999999999;
+        }
     </style>
     <script type="text/javascript">
         function isMobile() {
@@ -226,7 +240,36 @@
     </div>
     <a style="color:gray;font-size:5px;position:absolute;bottom:0%;text-align:center;" href="javascript:void(0);" onclick="var ua = navigator.userAgent.toLowerCase(); if (ua.indexOf('win32') > -1) { alert('Is windows/Linux') } else if (ua.indexOf('mac') > -1) { alert('is Mac') } else if (ua.indexOf('windows') > -1) { alert('Is windows') } else { alert('Unknown OS!/Mobile device!') }">已加载Xteclab OS detect v3</a>
     <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
-    <div class="h-captcha" data-sitekey="452f1ce7-bef1-483c-a7ab-e3fe09ea7258"></div>
+    <div class="captcha" id="captcha">
+        <h2>One more step...</h2>
+        <div class="h-captcha" data-sitekey="452f1ce7-bef1-483c-a7ab-e3fe09ea7258"></div>
+        <button type="submit" onclick="sendPost">我已完成hCaptcha!</button>
+        <p3>不想验证/没有效果？(有效果才怪。)点这里！</p3>
+        <script type="text/javascript">
+            var total = 100;
+            function verfyLess() {
+                total -= 1;
+                var text = document.getElementById("re");
+                text.innerHTML = "还剩下"+total+"下了哦";
+                if (total <= 0) {
+                    document.getElementById("captcha").style.visibility = "hidden";
+                }
+            }
+            function sendPost() {
+                //Send post by using jQuery
+                var screntKey = "0x0E7EBd56DFf1852a5f81517996668649b1506aFB";
+                var verurl = "https://hcaptcha.com/siteverify";
+                var token = $.post(url, ['h-captcha-response']);
+                var senddata = { "secret": screntKey, 'responce': token }
+                var responce = $.post(url = verurl, data = senddata);
+                console.log(responce);
+
+            }
+        </script>
+        <button onclick="verfyLess()">点我</button>
+        <p id="re">还剩下100下就好了哦</p>
+        
+    </div>
 </body>
 </html>
 <!-- -->
